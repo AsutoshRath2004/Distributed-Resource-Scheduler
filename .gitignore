@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Environment variables — never commit real secrets
+.env
+*/.env
+**/.env
+!.env.example
+!**/.env.example
+
+# Build output
+dashboard/dist/
+dashboard/build/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Misc
+.npm/
+.cache/

@@ -1,0 +1,310 @@
+.mono {
+  font-family: var(--font-mono);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.console {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+.console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-panel);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  color: var(--signal-active);
+  font-size: 18px;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.connection-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+/* ---------- Layout ---------- */
+.console-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  padding: 24px 28px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-column,
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 980px) {
+  .console-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Stat cards ---------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 980px) {
+  .stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-hairline);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.tone-active   { color: var(--signal-active); }
+.tone-warning  { color: var(--signal-warning); }
+.tone-offline  { color: var(--signal-offline); }
+.tone-idle     { color: var(--signal-idle); }
+.tone-neutral  { color: var(--text-primary); }
+
+/* ---------- Panels ---------- */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-hairline);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.panel-header {
+  margin-bottom: 14px;
+}
+
+.panel-header h2 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.empty-state {
+  padding: 28px 4px;
+  text-align: center;
+}
+.empty-state p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+/* ---------- Status dot ---------- */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-dot.tone-active  { background: var(--signal-active); box-shadow: 0 0 0 3px var(--signal-active-dim); }
+.status-dot.tone-warning { background: var(--signal-warning); box-shadow: 0 0 0 3px var(--signal-warning-dim); }
+.status-dot.tone-offline { background: var(--signal-offline); box-shadow: 0 0 0 3px var(--signal-offline-dim); }
+.status-dot.tone-idle    { background: var(--signal-idle); box-shadow: 0 0 0 3px var(--signal-idle-dim); }
+
+/* ---------- Worker grid ---------- */
+.worker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.worker-card {
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--border-hairline);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.worker-card.status-offline {
+  opacity: 0.55;
+}
+
+.worker-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.worker-id {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.worker-status-text {
+  margin-left: auto;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.worker-card-meta {
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.resource-bar-row {
+  margin-bottom: 8px;
+}
+
+.resource-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.resource-bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+.resource-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.resource-bar-fill.tone-active  { background: var(--signal-active); }
+.resource-bar-fill.tone-warning { background: var(--signal-warning); }
+.resource-bar-fill.tone-offline { background: var(--signal-offline); }
+
+/* ---------- Jobs table ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.jobs-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  padding: 0 10px 10px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.jobs-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-hairline);
+  white-space: nowrap;
+}
+
+.jobs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-pill,
+.priority-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-pending   { background: var(--signal-idle-dim); color: var(--signal-idle); }
+.status-assigned  { background: var(--signal-warning-dim); color: var(--signal-warning); }
+.status-running   { background: var(--signal-warning-dim); color: var(--signal-warning); }
+.status-completed { background: var(--signal-active-dim); color: var(--signal-active); }
+.status-failed    { background: var(--signal-offline-dim); color: var(--signal-offline); }
+
+.priority-low      { background: var(--bg-base); color: var(--text-tertiary); }
+.priority-normal   { background: var(--bg-base); color: var(--text-secondary); }
+.priority-high     { background: var(--signal-warning-dim); color: var(--signal-warning); }
+.priority-critical { background: var(--signal-offline-dim); color: var(--signal-offline); }
+
+/* ---------- Activity feed ---------- */
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.activity-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.activity-message {
+  flex: 1;
+}
+
+.activity-time {
+  font-size: 11px;
+  flex-shrink: 0;
+}

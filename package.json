@@ -1,0 +1,15 @@
+{
+  "name": "distributed-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "scheduler-service",
+    "worker-service"
+  ],
+  "scripts": {
+    "scheduler": "npm start --workspace=scheduler-service",
+    "worker": "npm start --workspace=worker-service",
+    "dev:scheduler": "npm run dev --workspace=scheduler-service",
+    "dev:worker": "npm run dev --workspace=worker-service"
+  }
+}
